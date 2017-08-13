@@ -1,0 +1,33 @@
+<div class="row charities-container" ng-controller="NotificationsCtrl">
+    <div class="row col-xs-12 clearfix">
+        <h2 class="title-nar-title pull-left">Email Notifications</h2>
+    </div>
+    <div ng-repeat="option in emails" class="notification-select col-xs-12">
+        <ng-switch class="notification-select-switch" on="option.checked">
+            <div ng-switch-when="true" class="notification-select-icon on glyphicon glyphicon-ok-circle"></div>
+            <div ng-switch-when="false" class="notification-select-icon off glyphicon glyphicon-remove-circle"></div>
+        </ng-switch>
+
+        <label for="subscription-{{$index}}">{{option.description}}</label>
+        <div class="toggle">
+            <input ng-model="option.checked" type="checkbox" id="subscription-{{$index}}">
+            <label class="toggle-button" ng-class="{ 'checked': option.checked }" for="subscription-{{$index}}"></label>
+        </div>
+    </div>
+
+    <div class="row col-xs-12 clearfix">
+        <h2 class="title-nar-title pull-left">Push Notifications</h2>
+    </div>
+    <div ng-repeat="option in pushNotifications" class="notification-select col-xs-12">
+        <ng-switch class="notification-select-switch" on="option.checked">
+            <div ng-switch-when="true" class="notification-select-icon on glyphicon glyphicon-ok-circle"></div>
+            <div ng-switch-when="false" class="notification-select-icon off glyphicon glyphicon-remove-circle"></div>
+        </ng-switch>
+
+        <label for="subscription-{{$index}}">{{option.description}}</label>
+        <div class="toggle">
+            <input ng-model="option.checked" type="checkbox" id="push-{{$index}}">
+            <label class="toggle-button" ng-class="{ 'checked': option.checked }" for="push-{{$index}}"></label>
+        </div>
+    </div>
+</div>

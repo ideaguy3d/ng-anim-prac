@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/rdash.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+
+<body ng-controller="MainCtrl">
+<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar">
+            <li class="sidebar-main">
+                <a ng-click="toggleSidebar()">
+                    Dashboard
+                    <span class="menu-icon glyphicon glyphicon-transfer"></span>
+                </a>
+            </li>
+            <li class="sidebar-title"><span>NAVIGATION</span></li>
+            <li class="sidebar-list">
+                <a href="#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+            </li>
+            <li class="sidebar-list">
+                <a href="#/notifications">Notifications <span class="menu-icon fa fa-bell"></span></a>
+            </li>
+            <li class="sidebar-list">
+                <a href="#/preferences">Preferences <span class="menu-icon fa fa-cog"></span></a>
+            </li>
+        </ul>
+    </div>
+    <!-- End Sidebar -->
+
+    <div id="content-wrapper">
+        <div class="page-content">
+
+            <!-- Header Bar -->
+            <div class="row header">
+                <div class="col-xs-12">
+                    <div class="user pull-right">
+                        <div class="item">
+                            <a class="dropdown-toggle" ng-click="showUserDropdown = !showUserDropdown">
+                                <img src="images/avatar.jpg">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" ng-show="showUserDropdown">
+                                <li class="dropdown-header">
+                                    Kevin Weeks
+                                </li>
+                                <li class="divider"></li>
+                                <li class="link">
+                                    <a href="#">
+                                        Profile
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="#">
+                                        Preferences
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="link">
+                                    <a href="#">
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="item dropdown">
+                            <a class="dropdown-toggle" ng-click="showNotificationDropdown = !showNotificationDropdown">
+                                <i class="fa fa-bell-o"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" ng-show="showNotificationDropdown">
+                                <li class="dropdown-header">
+                                    Notifications
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">1 New Friend Request</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <div class="page">
+                            Dashboard
+                        </div>
+                        <div class="breadcrumb-links">
+                            Home / {{page}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bar -->
+
+            <!-- Main Content -->
+            <div ng-view ng-animate-children></div>
+
+        </div><!-- End Page Content -->
+    </div><!-- End Content Wrapper -->
+</div><!-- End Page Wrapper -->
+
+<!-- Vendor -->
+<script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
+
+<!-- Angular -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+
+<!-- Main Module-->
+<script src="app.js"></script>
+
+<!-- Global -->
+<script src="global/global.js"></script>
+<script src="global/directives/loading.js"></script>
+<script src="global/directives/widget.js"></script>
+<script src="global/directives/widget-body.js"></script>
+<script src="global/directives/widget-footer.js"></script>
+<script src="global/directives/widget-header.js"></script>
+<script src="global/directives/alert.js"></script>
+<script src="global/animations.js"></script>
+
+<!-- Areas -->
+<script src="dashboard/dashboard.js"></script>
+<script src="dashboard/controllers/mainCtrl.js"></script>
+<script src="dashboard/controllers/dashboardCtrl.js"></script>
+<script src="dashboard/controllers/notificationsCtrl.js"></script>
+<script src="dashboard/controllers/preferencesCtrl.js"></script>
+<script src="dashboard/controllers/alertsCtrl.js"></script>
+<script src="dashboard/controllers/charitiesCtrl.js"></script>
+<script src="dashboard/controllers/followingCtrl.js"></script>
+</body>
+</html>

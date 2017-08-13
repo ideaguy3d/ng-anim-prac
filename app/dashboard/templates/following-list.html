@@ -1,0 +1,21 @@
+<div class="row following-container" ng-controller="FollowingCtrl">
+    <div class="row title-bar col-xs-12 clearfix">
+        <h2 class="title-nar-title">Following</h2>
+    </div>
+    <div class="following">
+        <div class="animate-fade-in-out following-user col-xs-4 col-md-3" ng-repeat="user in following" ng-if="!user.inactive">
+            <rd-widget>
+                <rd-widget-body>
+                    <div ng-click="user.inactive = !user.inactive" class="following-user-close glyphicon glyphicon-remove"></div>
+                    <div class="following-user-icon widget-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="charity-name title">
+                        <span>{{user.firstName}}</span>
+                        <span>{{user.lastName}}</span>
+                    </div>
+                </rd-widget-body>
+            </rd-widget>
+        </div>
+    </div>
+</div>

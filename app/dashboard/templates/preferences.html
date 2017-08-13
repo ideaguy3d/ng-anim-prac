@@ -1,0 +1,48 @@
+<div class="row preferences">
+    <div class="row col-xs-12 clearfix">
+        <h2 class="title-nar-title pull-left">Edit Account Details</h2>
+    </div>
+    <div class="col-xs-12">
+        <form name="preferencesForm" novalidate autocomplete="off" class="pull-left" ng-submit="submit()">
+
+            <div class="alert alert-success" ng-show="submitted">Account Details Updated</div>
+
+            <div class="row">
+                <label for="preferencesName">Name</label>
+                <input id="preferencesName" name="name" class="form-control" type="text" ng-model="user.name" required />
+            </div>
+
+            <div ng-messages="preferencesForm.name.$error">
+                <div ng-message="required" class="alert alert-danger">Name is required</div>
+            </div>
+
+            <div class="row">
+                <label for="preferencesEmail">Email</label>
+                <input id="preferencesEmail" name="email" class="form-control" type="email" ng-model="user.email" minlength="4" />
+            </div>
+
+            <div ng-messages="preferencesForm.email.$error">
+                <div ng-message="email" class="invalid-email alert alert-danger">Please enter a valid email</div>
+                <div ng-message="minlength" class="alert alert-danger">Email must be at least 5 characters long</div>
+            </div>
+
+            <div class="row">
+                <label for="preferencesCity">City</label>
+                <input id="preferencesCity" class="form-control" type="text" ng-model="user.city"/>
+            </div>
+
+            <div class="row">
+                <label for="preferencesOldPassword">Old Password</label>
+                <input id="preferencesOldPassword" class="form-control" type="password" ng-model="oldPassword"/>
+            </div>
+
+            <div class="row">
+                <label for="preferencesNewPassword">New Password</label>
+                <input id="preferencesNewPassword" class="form-control" type="password" ng-model="newPassword" />
+            </div>
+
+            <input type="submit" value="Save" class="pull-right" ng-disabled="preferencesForm.$invalid" />
+            <input type="button" value="Cancel" ng-show="preferencesForm.$dirty" ng-click="cancel()" />
+        </form>
+    </div>
+</div>

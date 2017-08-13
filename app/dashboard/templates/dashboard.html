@@ -1,0 +1,13 @@
+<div class="alerts-container" data-ng-controller="AlertsCtrl" data-ng-show="alerts.length">
+    <div class="col-xs-12">
+        <wmc-alert ng-repeat="alert in alerts"
+                   type="{{alert.type}}"
+                   close="closeAlert($index)">{{alert.msg}}</wmc-alert>
+    </div>
+</div>
+
+<div class="charities-container" ng-controller="CharitiesCtrl">
+    <div ng-include="'dashboard/templates/charities-list.html'"></div>
+</div>
+
+<div ng-include="'dashboard/templates/following-list.html'"></div>
